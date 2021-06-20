@@ -378,8 +378,13 @@ body {
           }
 
           img {
-            block-size: 20px;
+            block-size: 25px;
             margin-inline-end: 10px;
+            object-fit: scale-down;
+          }
+          
+          .payment-badges {
+            margin-inline-start: 30px;
           }
         }
 

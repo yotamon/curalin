@@ -16,7 +16,9 @@ const Payment = () => {
                 <div className="payment-section">
                     <input type="radio" name="payment" id="" value='paypal' onChange={(e)=>setSelectedRadio(e.target.value)}/>
                     <p>Pay With</p>
-                    <img src={paymentsImagesDir + 'paypal.png'} alt="" />
+                    <div className="payment-badges">
+                        <img src={paymentsImagesDir + 'paypal.png'} alt="" />
+                    </div>
                 </div>
                 <div className="payment-section">
                     <input type="radio" name="payment" id="" value='card' onChange={(e)=>setSelectedRadio(e.target.value)}/>
