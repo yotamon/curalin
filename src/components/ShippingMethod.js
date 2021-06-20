@@ -12,7 +12,7 @@ const method = ({onShippingChange}) => {
                     </select>
                 </label>
             </form>
-        </section>
+        </section> 
     )
 }
 
