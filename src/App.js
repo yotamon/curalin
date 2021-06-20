@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import TrustBadges from './components/TrustBadges'
+import CartResults from './components/CartResults'
+import Upsell from './components/Upsell'
+import BillingInfo from './components/BillingInfo'
+import ShippingInfo from './components/ShippingInfo'
+import ShippingMethod from './components/ShippingMethod'
+import PaymentInfo from './components/PaymentInfo'
+import Footer from './components/Footer'
+
+import { useState } from "react";
+
 
 function App() {
+  const [upsellState, setUpsellState] = useState(false);
+  const [shippingPrice, setShippingPrice] = useState(10);
+
+  const UpsellChange = (isChecked) => {
+    setUpsellState(isChecked)
+    console.log(upsellState);
+  }
+
+  const ShippingChange = (price) => {
+    setShippingPrice(price)
+    console.log(shippingPrice);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header title="CERTIFIED 100% SAFE & SECURE CHECKOUT"/>
+      <div className="container">
+        <TrustBadges/>
+        <h1 className="page-title">What we’ll ship you today</h1>
+        <CartResults upsellState={upsellState} shippingPrice={shippingPrice}/>
+        <Upsell onUpsellChange={UpsellChange} upsellState={upsellState}/>
+        <div className="forms">
+          <BillingInfo/>
+          <ShippingInfo/>
+        </div>
+        <div className="shipping-select forms">
+          <ShippingMethod onShippingChange={ShippingChange}/>
+        </div>
+        <div className="payment-info forms">
+          <PaymentInfo/>
+        </div>
+      </div>
+      <Footer/>
     </div>
   );
 }
